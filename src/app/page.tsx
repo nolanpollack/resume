@@ -5,9 +5,10 @@ import phone from "../assets/phone.png";
 import mail from "../assets/mail.png";
 import github from "../assets/github.png";
 import {ReactNode} from "react";
+import Script from "next/script";
 
 function H1({title}: { title: string }) {
-    return <h1 className="py-4 lg:py-6 sm:text-5xl text-4xl text-gray-600">{title}</h1>
+    return <h1 className="dark:text-white py-4 lg:py-6 sm:text-5xl text-4xl text-gray-600">{title}</h1>
 }
 
 function H2({title}: { title: string }) {
@@ -132,7 +133,7 @@ function ExperienceSection() {
 }
 
 function Skill({title}: { title: string }) {
-    return <p className="text-gray-900 bg-gray-200 text-sm rounded px-1 m-0.5">{title}</p>
+    return <p className="transition inline-flex text-gray-900 bg-gray-200 text-sm rounded px-1 m-0.5 hover:scale-105 hover:bg-gray-300">{title}</p>
 }
 
 function SkillsSection() {
@@ -146,6 +147,7 @@ function SkillsSection() {
                     <Skill title={"Kotlin"}/>
                     <Skill title={"Python"}/>
                     <Skill title={"C"}/>
+                    <Skill title={"SQL"}/>
                     <Skill title={"JavaScript"}/>
                     <Skill title={"TypeScript"}/>
                 </div>
@@ -155,9 +157,17 @@ function SkillsSection() {
     </WhiteBox>
 }
 
+function LightSwitch() {
+    return <div>
+        <input type="checkbox" name="light-switch"/>
+        <label htmlFor="light-switch">Toggle Light/Dark Mode</label>
+    </div>
+}
+
 export default function Home() {
     return (
-        <main className="bg-white min-h-screen flex-col items-center p-4 lg:py-12 lg:px-44">
+        <main className="dark:bg-slate-800 bg-white min-h-screen flex-col items-center p-4 lg:py-12 lg:px-44">
+            <LightSwitch/>
             <div className="flex flex-col items-center py-6 pt-0">
                 <H1 title={"Nolan Pollack"}/>
                 <ContactSection/>
