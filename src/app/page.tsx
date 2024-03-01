@@ -4,10 +4,10 @@ import linkedin from "../assets/linkedin.png";
 import phone from "../assets/phone.png";
 import mail from "../assets/mail.png";
 import github from "../assets/github.png";
-import {ReactNode, useState} from "react";
+import {ReactNode} from "react";
 
 function H1({title}: { title: string }) {
-    return <h1 className="py-4 lg:py-6 lg:text-5xl text-2xl text-gray-600">{title}</h1>
+    return <h1 className="py-4 lg:py-6 sm:text-5xl text-4xl text-gray-600">{title}</h1>
 }
 
 function H2({title}: { title: string }) {
@@ -29,13 +29,13 @@ function H5({title}: { title: string }) {
 function WhiteBox(props: { children: ReactNode }) {
     // return <div className="relative bg-gray-200 px-6 py-3 shadow-xl shadow-gray-500/20 hover:ring-8 ring-gray-500 sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10">
     return <div
-        className="transition justify-center items-center bg-gray-100 shadow-xl rounded-lg max-content px-5 m-2 py-4 hover:scale-105">
+        className="justify-center items-center bg-gray-100 shadow-xl rounded-lg px-5 m-2 py-4">
         {props.children}
     </div>
 }
 
 function ContactSection() {
-    return <div className="flex flex-col sm:flex-row justify-around sm:space-x-10">
+    return <div className="flex flex-wrap flex-row justify-around">
         <ContactItem title={"nolanfpollack@gmail.com"} link={"mailto:nolanfpollack@gmail.com"} image={mail}/>
         <ContactItem title={"727-204-9285"} link={"tel:1-727-204-9285"} image={phone}/>
         <ContactItem title={"linkedin.com/in/nolan-pollack"} link={"https://www.linkedin.com/in/nolan-pollack/"}
@@ -46,7 +46,7 @@ function ContactSection() {
 
 function ContactItem({title, link, image}: { title: string, link: string, image: any }) {
     return <a href={link} target="_blank" rel="noreferrer">
-        <div className="flex space-x-2 hover:bg-gray-200 px-1.5 text-nowrap rounded-lg py-0.5 active:bg-gray-300">
+        <div className="flex space-x-2 hover:bg-gray-200 px-1.5 mx-2 text-nowrap rounded-lg py-0.5 active:bg-gray-300">
             <Image className="object-contain" src={image} width={15} height={15} alt={"Phone Logo"}/>
             <p className="text-gray-600 flex-1">{title}</p>
         </div>
@@ -69,8 +69,6 @@ function WorkExperience({title, company, date, children}: {
     date: string,
     children: ReactNode
 }) {
-    const [isHovered, setIsHovered] = useState(false);
-
     return <div className="py-4 group">
         <div className="flex flex-row">
             <H3 title={title}/>
@@ -136,12 +134,12 @@ function ExperienceSection() {
 
 export default function Home() {
     return (
-        <main className="bg-white min-h-screen flex-col items-center p-12 px-52">
-            <div className="flex flex-col items-center p-6 pt-0">
+        <main className="bg-white min-h-screen flex-col items-center p-4 lg:py-12 lg:px-44">
+            <div className="flex flex-col items-center py-6 pt-0">
                 <H1 title={"Nolan Pollack"}/>
                 <ContactSection/>
             </div>
-            <div className="flex flex-row">
+            <div className="flex flex-col sm:flex-row">
                 {/*Left Side*/}
                 <div>
                     <EducationSection/>
