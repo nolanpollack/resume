@@ -27,7 +27,6 @@ function H5({title}: { title: string }) {
 }
 
 function WhiteBox(props: { children: ReactNode }) {
-    // return <div className="relative bg-gray-200 px-6 py-3 shadow-xl shadow-gray-500/20 hover:ring-8 ring-gray-500 sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10">
     return <div
         className="justify-center items-center bg-gray-100 shadow-xl rounded-lg px-5 m-2 py-4">
         {props.children}
@@ -37,7 +36,7 @@ function WhiteBox(props: { children: ReactNode }) {
 function ContactSection() {
     return <div className="flex flex-wrap flex-row justify-around">
         <ContactItem title={"nolanfpollack@gmail.com"} link={"mailto:nolanfpollack@gmail.com"} image={mail}/>
-        <ContactItem title={"727-204-9285"} link={"tel:1-727-204-9285"} image={phone}/>
+        <ContactItem title={"+1 727-204-9285"} link={"tel:1-727-204-9285"} image={phone}/>
         <ContactItem title={"linkedin.com/in/nolan-pollack"} link={"https://www.linkedin.com/in/nolan-pollack/"}
                      image={linkedin}/>
         <ContactItem title={"github.com/nolanpollack"} link={"https://github.com/nolanpollack"} image={github}/>
@@ -57,7 +56,7 @@ function EducationItem({school, degree, date}: { school: string, degree: string,
     return <div className="py-4">
         <div className="flex flex-row">
             <H3 title={school}/>
-            <h4 className="tracking-widest text-gray-900 ml-auto">{date}</h4>
+            <h4 className="tracking-wide text-gray-900 ml-auto">{date}</h4>
         </div>
         <H5 title={degree}/>
     </div>
@@ -132,6 +131,30 @@ function ExperienceSection() {
     </WhiteBox>
 }
 
+function Skill({title}: { title: string }) {
+    return <p className="text-gray-900 bg-gray-200 text-sm rounded px-1 m-0.5">{title}</p>
+}
+
+function SkillsSection() {
+    return <WhiteBox>
+        <div className="divide-y">
+            <H2 title={"Skills"}/>
+            <div className="py-4">
+                <H4 title={"Programming Languages"}/>
+                <div>
+                    <Skill title={"Java"}/>
+                    <Skill title={"Kotlin"}/>
+                    <Skill title={"Python"}/>
+                    <Skill title={"C"}/>
+                    <Skill title={"JavaScript"}/>
+                    <Skill title={"TypeScript"}/>
+                </div>
+            </div>
+        </div>
+
+    </WhiteBox>
+}
+
 export default function Home() {
     return (
         <main className="bg-white min-h-screen flex-col items-center p-4 lg:py-12 lg:px-44">
@@ -147,9 +170,7 @@ export default function Home() {
                 </div>
                 {/*Right Side*/}
                 <div>
-                    <WhiteBox>
-                        <H2 title={"Skills"}/>
-                    </WhiteBox>
+                    <SkillsSection/>
                 </div>
             </div>
         </main>
