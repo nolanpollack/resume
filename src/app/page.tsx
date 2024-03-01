@@ -46,7 +46,7 @@ function ContactSection() {
 
 function ContactItem({title, link, image}: { title: string, link: string, image: any }) {
     return <a href={link} target="_blank" rel="noreferrer">
-        <div className="flex space-x-2 hover:bg-gray-200 px-1.5 mx-2 text-nowrap rounded-lg py-0.5 active:bg-gray-300">
+        <div className="flex space-x-2 hover:bg-gray-200 px-1.5 mx-1 text-nowrap rounded-lg py-0.5 active:bg-gray-300">
             <Image className="object-contain" src={image} width={15} height={15} alt={"Phone Logo"}/>
             <p className="text-gray-600 flex-1">{title}</p>
         </div>
