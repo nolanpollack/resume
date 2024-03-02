@@ -159,7 +159,7 @@ function Skill({title}: { title: string }) {
 }
 
 function SkillCategory({title, skills}: { title: string, skills: string[] }) {
-    const skillItems = skills.map((skill) => <Skill title={skill}/>)
+    const skillItems = skills.map((skill, index) => <Skill key={index} title={skill}/>)
 
     return <div className="py-4">
         <H4 title={title}/>
@@ -185,7 +185,6 @@ function SkillsSection() {
 function ProjectsSection() {
     return <Box>
         <H2 title={"Projects"}/>
-        <p>test</p>
     </Box>
 }
 
