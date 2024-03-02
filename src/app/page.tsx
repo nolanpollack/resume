@@ -185,6 +185,7 @@ function SkillsSection() {
 function ProjectsSection() {
     return <Box>
         <H2 title={"Projects"}/>
+        <p>test</p>
     </Box>
 }
 
