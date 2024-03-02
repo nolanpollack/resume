@@ -6,6 +6,7 @@ import mail from "../assets/mail.png";
 import github from "../assets/github.png";
 import {ReactNode} from "react";
 
+
 function H1({title}: { title: string }) {
     return <h1 className="dark:text-white font-bold py-4 lg:py-6 sm:text-5xl text-4xl text-gray-600">{title}</h1>
 }
