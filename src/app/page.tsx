@@ -5,7 +5,6 @@ import phone from "../assets/phone.png";
 import mail from "../assets/mail.png";
 import github from "../assets/github.png";
 import {ReactNode} from "react";
-import Script from "next/script";
 
 function H1({title}: { title: string }) {
     return <h1 className="dark:text-white font-bold py-4 lg:py-6 sm:text-5xl text-4xl text-gray-600">{title}</h1>
@@ -20,7 +19,7 @@ function H3({title}: { title: string }) {
 }
 
 function H4({title}: { title: string }) {
-    return <h4 className="dark:text-slate-300 text-gray-600 text-lg">{title}</h4>
+    return <h4 className="lg:text-nowrap dark:text-slate-300 text-gray-600 text-lg pb-1">{title}</h4>
 }
 
 function H5({title}: { title: string }) {
@@ -46,7 +45,8 @@ function ContactSection() {
 
 function ContactItem({title, link, image}: { title: string, link: string, image: any }) {
     return <a href={link} target="_blank" rel="noreferrer">
-        <div className="flex space-x-2 dark:hover:bg-slate-600 hover:bg-gray-200 px-1.5 mx-1 text-nowrap rounded-lg py-0.5 active:bg-gray-300">
+        <div
+            className="flex space-x-2 dark:hover:bg-slate-600 hover:bg-gray-200 px-1.5 mx-1 text-nowrap rounded-lg py-0.5 active:bg-gray-300">
             <Image className="object-contain" src={image} width={15} height={15} alt={"Phone Logo"}/>
             <p className="dark:text-slate-400 text-gray-600 flex-1">{title}</p>
         </div>
@@ -55,9 +55,9 @@ function ContactItem({title, link, image}: { title: string, link: string, image:
 
 function EducationItem({school, degree, date}: { school: string, degree: string, date: string }) {
     return <div className="py-4">
-        <div className="flex flex-row">
+        <div className="flex flex-row justify-between">
             <H3 title={school}/>
-            <h4 className="tracking-wide text-gray-900 ml-auto">{date}</h4>
+            <H4 title={date}/>
         </div>
         <H5 title={degree}/>
     </div>
@@ -70,9 +70,9 @@ function WorkExperience({title, company, date, children}: {
     children: ReactNode
 }) {
     return <div className="py-4 group">
-        <div className="flex flex-row">
+        <div className="flex flex-row justify-between">
             <H3 title={title}/>
-            <h4 className="tracking-widest text-gray-900 ml-auto">{date}</h4>
+            <H4 title={date}/>
         </div>
         <H4 title={company}/>
         <ul className="">
@@ -128,32 +128,63 @@ function ExperienceSection() {
                     </li>
                 </ExperienceBullets>
             </WorkExperience>
+            <WorkExperience title={"Network Operations Center Engineer Co-op"} company={"iCorps Technologies"}
+                            date={"January 2022 - November 2022"}>
+                <ExperienceBullets>
+                    <li>
+                        Spearheaded creation of 10+ scripts in Java and Powershell to automate previously manual
+                        reporting in a multitude of managed services for hundreds of clients, reducing time spent by 95%
+                    </li>
+                    <li>
+                        Led project management team of 4 colleagues to develop scalable software with extensive code
+                        reusability, allowing for future expansion.
+                    </li>
+                    <li>
+                        Utilized Selenium Webdriver to extract data from managed SaaS platforms, providing organized
+                        data to be used by scripts.
+                    </li>
+                    <li>
+                        Diagnosed and repaired 500+ technical issues for clients in fields including server management
+                        and networking administration.
+                    </li>
+                </ExperienceBullets>
+            </WorkExperience>
         </div>
     </Box>
 }
 
 function Skill({title}: { title: string }) {
-    return <p className="transition inline-flex text-gray-900 bg-gray-200 text-sm rounded px-1 m-0.5 hover:scale-105 hover:bg-gray-300">{title}</p>
+    return <p
+        className="transition inline-flex dark:text-slate-300 text-gray-900 bg-gray-200 dark:bg-slate-900 text-sm rounded px-1 m-0.5 hover:scale-105 dark:hover:bg-slate-950 hover:bg-gray-300">{title}</p>
+}
+
+function SkillCategory({title, skills}: { title: string, skills: string[] }) {
+    const skillItems = skills.map((skill) => <Skill title={skill}/>)
+
+    return <div className="py-4">
+        <H4 title={title}/>
+        <div>
+            {skillItems}
+        </div>
+    </div>
 }
 
 function SkillsSection() {
     return <Box>
         <div className="divide-y">
             <H2 title={"Skills"}/>
-            <div className="py-4">
-                <H4 title={"Programming Languages"}/>
-                <div>
-                    <Skill title={"Java"}/>
-                    <Skill title={"Kotlin"}/>
-                    <Skill title={"Python"}/>
-                    <Skill title={"C"}/>
-                    <Skill title={"SQL"}/>
-                    <Skill title={"JavaScript"}/>
-                    <Skill title={"TypeScript"}/>
-                </div>
-            </div>
+            <SkillCategory title={"Programming Languages"}
+                           skills={["Java", "Kotlin", "Python", "C", "SQL", "TypeScript", "JavaScript"]}/>
+            <SkillCategory title={"Tools / Frameworks"}
+                           skills={["Git/GitHub", "Docker", "Jira", "Confluence", "DataDog", "Postman", "Gradle/Maven", "React", "Next.js", "JUnit", "PyTest"]}/>
         </div>
 
+    </Box>
+}
+
+function ProjectsSection() {
+    return <Box>
+        <H2 title={"Projects"}/>
     </Box>
 }
 
@@ -166,7 +197,7 @@ function LightSwitch() {
 
 export default function Home() {
     return (
-        <main className="dark:bg-slate-900 bg-white min-h-screen flex-col items-center p-4 lg:py-12 lg:px-44">
+        <main className="dark:bg-slate-900 dark:bg-none bg-gradient-to-b from-white to-purple-100 min-h-screen flex-col items-center p-4 lg:py-12 lg:px-40">
             <div className="flex flex-col items-center py-6 pt-0">
                 <H1 title={"Nolan Pollack"}/>
                 <ContactSection/>
@@ -180,6 +211,7 @@ export default function Home() {
                 {/*Right Side*/}
                 <div>
                     <SkillsSection/>
+                    <ProjectsSection/>
                 </div>
             </div>
         </main>
