@@ -8,28 +8,28 @@ import {ReactNode} from "react";
 import Script from "next/script";
 
 function H1({title}: { title: string }) {
-    return <h1 className="dark:text-white py-4 lg:py-6 sm:text-5xl text-4xl text-gray-600">{title}</h1>
+    return <h1 className="dark:text-white font-bold py-4 lg:py-6 sm:text-5xl text-4xl text-gray-600">{title}</h1>
 }
 
 function H2({title}: { title: string }) {
-    return <h2 className="mb-4 font-bold tracking-wide text-xl text-gray-600 ">{title}</h2>
+    return <h2 className="mb-4 font-bold tracking-wide text-xl dark:text-white text-gray-600 ">{title}</h2>
 }
 
 function H3({title}: { title: string }) {
-    return <h3 className="text-xl text-gray-600 pb-1">{title}</h3>
+    return <h3 className="text-xl dark:text-slate-300 text-gray-600 pb-1">{title}</h3>
 }
 
 function H4({title}: { title: string }) {
-    return <h4 className="text-gray-600 text-lg">{title}</h4>
+    return <h4 className="dark:text-slate-300 text-gray-600 text-lg">{title}</h4>
 }
 
 function H5({title}: { title: string }) {
-    return <h5 className="text-gray-600 text-sm">{title}</h5>
+    return <h5 className="dark:text-slate-400 text-gray-600 text-sm">{title}</h5>
 }
 
-function WhiteBox(props: { children: ReactNode }) {
+function Box(props: { children: ReactNode }) {
     return <div
-        className="justify-center items-center bg-gray-100 shadow-xl rounded-lg px-5 m-2 py-4">
+        className="justify-center items-center dark:bg-slate-800 bg-gray-100 shadow-xl rounded-lg px-5 m-2 py-4">
         {props.children}
     </div>
 }
@@ -46,9 +46,9 @@ function ContactSection() {
 
 function ContactItem({title, link, image}: { title: string, link: string, image: any }) {
     return <a href={link} target="_blank" rel="noreferrer">
-        <div className="flex space-x-2 hover:bg-gray-200 px-1.5 mx-1 text-nowrap rounded-lg py-0.5 active:bg-gray-300">
+        <div className="flex space-x-2 dark:hover:bg-slate-600 hover:bg-gray-200 px-1.5 mx-1 text-nowrap rounded-lg py-0.5 active:bg-gray-300">
             <Image className="object-contain" src={image} width={15} height={15} alt={"Phone Logo"}/>
-            <p className="text-gray-600 flex-1">{title}</p>
+            <p className="dark:text-slate-400 text-gray-600 flex-1">{title}</p>
         </div>
     </a>
 }
@@ -82,14 +82,14 @@ function WorkExperience({title, company, date, children}: {
 }
 
 function ExperienceBullets({children}: { children: ReactNode }) {
-    return <ul className="list-disc text-gray-500 list-outside mx-10 space-y-1.5">
+    return <ul className="list-disc dark:text-slate-400 text-gray-500 list-outside mx-10 space-y-1.5">
         {children}
     </ul>
 
 }
 
 function EducationSection() {
-    return <WhiteBox>
+    return <Box>
         <div className="divide-y">
             <H2 title={"Education"}/>
             <EducationItem school={"Northeastern University"}
@@ -98,11 +98,11 @@ function EducationSection() {
                            degree={"Bachelor of Science in Computer Science and Business Administration, Concentration in FinTech"}
                            date={"September 2020 - May 2024"}/>
         </div>
-    </WhiteBox>
+    </Box>
 }
 
 function ExperienceSection() {
-    return <WhiteBox>
+    return <Box>
         <div className="divide-y">
             <H2 title={"Experience"}/>
             <WorkExperience title={"Software Engineer Co-op"} company={"Toast"} date={"May 2023 - August 2023"}>
@@ -129,7 +129,7 @@ function ExperienceSection() {
                 </ExperienceBullets>
             </WorkExperience>
         </div>
-    </WhiteBox>
+    </Box>
 }
 
 function Skill({title}: { title: string }) {
@@ -137,7 +137,7 @@ function Skill({title}: { title: string }) {
 }
 
 function SkillsSection() {
-    return <WhiteBox>
+    return <Box>
         <div className="divide-y">
             <H2 title={"Skills"}/>
             <div className="py-4">
@@ -154,7 +154,7 @@ function SkillsSection() {
             </div>
         </div>
 
-    </WhiteBox>
+    </Box>
 }
 
 function LightSwitch() {
@@ -166,8 +166,7 @@ function LightSwitch() {
 
 export default function Home() {
     return (
-        <main className="dark:bg-slate-800 bg-white min-h-screen flex-col items-center p-4 lg:py-12 lg:px-44">
-            <LightSwitch/>
+        <main className="dark:bg-slate-900 bg-white min-h-screen flex-col items-center p-4 lg:py-12 lg:px-44">
             <div className="flex flex-col items-center py-6 pt-0">
                 <H1 title={"Nolan Pollack"}/>
                 <ContactSection/>
