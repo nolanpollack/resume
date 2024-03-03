@@ -39,7 +39,7 @@ export default function Modal({
           />
         </Transition.Child>
 
-        <div className="fixed inset-0 flex w-screen items-center justify-center overflow-x-auto p-2 sm:px-32 sm:py-24 lg:px-64">
+        <div className="fixed inset-0 flex w-screen items-center justify-center p-2 sm:px-32 sm:py-24 lg:px-64">
           <Transition.Child
             as={Fragment}
             enter="transition ease-out duration-300"
