@@ -1,17 +1,10 @@
 import Box from "@/components/Box";
 import { H2, H4 } from "@/components/Headings";
-
-function Skill({ title }: { title: string }) {
-  return (
-    <p className="text-md m-0.5 inline-flex rounded bg-gray-200 px-1 text-gray-900 transition hover:scale-105 hover:bg-gray-300 sm:text-sm dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-950">
-      {title}
-    </p>
-  );
-}
+import TextItem from "@/components/TextItem";
 
 function SkillCategory(props: { title: string; skills: string[] }) {
   const skillItems = props.skills.map((skill, index) => (
-    <Skill key={index} title={skill} />
+    <TextItem key={index} title={skill} />
   ));
 
   return (
@@ -22,7 +15,7 @@ function SkillCategory(props: { title: string; skills: string[] }) {
   );
 }
 
-function SkillsSection() {
+export default function SkillsSection() {
   return (
     <Box>
       <div className="divide-y">
@@ -53,11 +46,10 @@ function SkillsSection() {
             "Next.js",
             "JUnit",
             "PyTest",
+            "TensorFlow",
           ]}
         />
       </div>
     </Box>
   );
 }
-
-export default SkillsSection;

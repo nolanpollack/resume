@@ -4,6 +4,7 @@ import { H2, H5 } from "@/components/Headings";
 import Button from "@/components/Button";
 import { useState } from "react";
 import Modal from "@/components/Modal";
+import TextItem from "@/components/TextItem";
 
 function Project({
   title,
@@ -25,25 +26,23 @@ function Project({
       <H5>{bullet}</H5>
     </li>
   ));
-  const skillList = skills
-    ? skills.map((skill) => (
-        <div key={skill} className="mx-1 rounded bg-gray-200 px-1">
-          <H5>{skill}</H5>
-        </div>
-      ))
+  const skillItems = skills
+    ? skills.map((skill, index) => <TextItem key={index} title={skill} />)
     : null;
 
   return (
     <div>
       <Button title={title} onClick={() => setIsOpen(true)} />
       <Modal title={title} date={date} isOpen={isOpen} setIsOpen={setIsOpen}>
-        <ul className="text-gray-600">{bullets}</ul>
-        {skills && (
-          <div className="flex flex-row pt-4 text-gray-700">
-            <H5>Skills: </H5>
-            {skillList}
-          </div>
-        )}
+        <div className="divide-y">
+          <ul className="text-gray-600">{bullets}</ul>
+          {skills && (
+            <div className="mt-2 pt-3">
+              <p className="mr-1 inline-flex text-gray-600">Skills: </p>
+              {skillItems}
+            </div>
+          )}
+        </div>
       </Modal>
     </div>
   );
