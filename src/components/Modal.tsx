@@ -50,7 +50,7 @@ export default function Modal({
             <Dialog.Panel>
               <Box>
                 <div className="divide-y p-4">
-                  <Dialog.Title className="flex flex-row justify-between">
+                  <Dialog.Title className="flex flex-col justify-between sm:flex-row">
                     <H2>{title}</H2>
                     {date && <H5>{date}</H5>}
                   </Dialog.Title>
