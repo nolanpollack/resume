@@ -1,4 +1,3 @@
-"use client";
 import { H1 } from "@/components/Headings";
 import ContactSection from "@/app/components/ContactSection";
 import EducationSection from "@/app/components/EducationSection";

@@ -8,11 +8,13 @@ import { H2, H5 } from "@/components/Headings";
 
 export default function Modal({
   title,
+  date,
   children,
   isOpen,
   setIsOpen,
 }: {
   title: string;
+  date?: string;
   children: ReactNode;
   isOpen: boolean;
   setIsOpen: (open: boolean) => void;
@@ -47,11 +49,14 @@ export default function Modal({
           >
             <Dialog.Panel>
               <Box>
-                <div className="p-4">
-                  <Dialog.Title>
+                <div className="divide-y p-4">
+                  <Dialog.Title className="flex flex-row justify-between">
                     <H2>{title}</H2>
+                    {date && <H5>{date}</H5>}
                   </Dialog.Title>
-                  <Dialog.Description>{children}</Dialog.Description>
+                  <Dialog.Description className="pt-4">
+                    {children}
+                  </Dialog.Description>
                 </div>
               </Box>
             </Dialog.Panel>
