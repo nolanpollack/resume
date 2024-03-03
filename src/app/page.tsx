@@ -8,7 +8,8 @@ import {ReactNode} from "react";
 
 
 function H1({title}: { title: string }) {
-    return <h1 className="dark:text-white font-bold py-4 lg:py-6 sm:text-5xl text-4xl text-gray-600">{title}</h1>
+    return <h1
+        className="dark:text-white font-bold py-4 lg:py-6 sm:text-5xl text-4xl text-gray-600 drop-shadow-md">{title}</h1>
 }
 
 function H2({title}: { title: string }) {
@@ -16,18 +17,18 @@ function H2({title}: { title: string }) {
 }
 
 function H3({title}: { title: string }) {
-    return <h3 className="text-xl dark:text-slate-300 text-gray-600 pb-1">{title}</h3>
+    return <h3 className="text-xl dark:text-slate-300 text-gray-600 py-1">{title}</h3>
 }
 
 function H4({title}: { title: string }) {
-    return <h4 className="lg:text-nowrap dark:text-slate-300 text-gray-600 text-lg pb-1">{title}</h4>
+    return <h4 className="lg:text-nowrap dark:text-slate-300 text-gray-600 text-lg py-1">{title}</h4>
 }
 
 function H5({title}: { title: string }) {
-    return <h5 className="dark:text-slate-400 text-gray-600 text-sm">{title}</h5>
+    return <h5 className="dark:text-slate-400 text-gray-600 text-sm py-1">{title}</h5>
 }
 
-function Box(props: { children: ReactNode }) {
+function Box(props: { children?: ReactNode }) {
     return <div
         className="justify-center items-center dark:bg-slate-800 bg-gray-100 shadow-xl rounded-lg px-5 m-2 py-4">
         {props.children}
@@ -55,10 +56,10 @@ function ContactItem({title, link, image}: { title: string, link: string, image:
 }
 
 function EducationItem({school, degree, date}: { school: string, degree: string, date: string }) {
-    return <div className="py-4">
-        <div className="flex flex-row justify-between">
+    return <div className="py-3">
+        <div className="flex flex-row justify-between items-start">
             <H3 title={school}/>
-            <H4 title={date}/>
+            <H5 title={date}/>
         </div>
         <H5 title={degree}/>
     </div>
@@ -70,20 +71,18 @@ function WorkExperience({title, company, date, children}: {
     date: string,
     children: ReactNode
 }) {
-    return <div className="py-4 group">
-        <div className="flex flex-row justify-between">
+    return <div className="py-3">
+        <div className="flex flex-row justify-between items-start">
             <H3 title={title}/>
-            <H4 title={date}/>
+            <H5 title={date}/>
         </div>
         <H4 title={company}/>
-        <ul className="">
-            {children}
-        </ul>
+        {children}
     </div>
 }
 
 function ExperienceBullets({children}: { children: ReactNode }) {
-    return <ul className="list-disc dark:text-slate-400 text-gray-500 list-outside mx-10 space-y-1.5">
+    return <ul className="list-disc dark:text-slate-400 text-gray-500 list-outside mx-10 space-y-1.5 my-1">
         {children}
     </ul>
 
@@ -159,11 +158,11 @@ function Skill({title}: { title: string }) {
         className="transition inline-flex dark:text-slate-300 text-gray-900 bg-gray-200 dark:bg-slate-900 text-sm rounded px-1 m-0.5 hover:scale-105 dark:hover:bg-slate-950 hover:bg-gray-300">{title}</p>
 }
 
-function SkillCategory({title, skills}: { title: string, skills: string[] }) {
-    const skillItems = skills.map((skill, index) => <Skill key={index} title={skill}/>)
+function SkillCategory(props: { title: string, skills: string[] }) {
+    const skillItems = props.skills.map((skill, index) => <Skill key={index} title={skill}/>)
 
-    return <div className="py-4">
-        <H4 title={title}/>
+    return <div className="pt-1 pb-3">
+        <H4 title={props.title}/>
         <div>
             {skillItems}
         </div>
@@ -186,7 +185,24 @@ function SkillsSection() {
 function ProjectsSection() {
     return <Box>
         <H2 title={"Projects"}/>
+        <Project title={"Resume Website"} date={"February 2024 - March 2024"} description={"Made website"}/>
+        <Project title={"Multi-Threaded KV Store"} date={""} description={""}/>
     </Box>
+}
+
+function Project({title, date, description, link}: {
+    title: string,
+    date: string,
+    description: string,
+    link?: string,
+}) {
+    return <button
+        className="transition hover:bg-transparent duration-700 w-full rounded-2xl bg-gradient-to-br from-gray-900 to-purple-800 p-1 my-2 drop-shadow-md hover:scale-105">
+        <h1
+            className="bg-gray-100 object-fill rounded-xl px-4 py-2 font-semibold text-gray-500 text-sm">
+            {title}
+        </h1>
+    </button>
 }
 
 function LightSwitch() {
@@ -198,7 +214,8 @@ function LightSwitch() {
 
 export default function Home() {
     return (
-        <main className="dark:bg-slate-900 dark:bg-none bg-gradient-to-b from-white to-purple-100 min-h-screen flex-col items-center p-4 lg:py-12 lg:px-40">
+        <main
+            className="dark:bg-slate-900 dark:bg-none bg-gradient-to-b from-white to-purple-100 min-h-screen flex-col items-center p-4 lg:py-12 lg:px-40">
             <div className="flex flex-col items-center py-6 pt-0">
                 <H1 title={"Nolan Pollack"}/>
                 <ContactSection/>
