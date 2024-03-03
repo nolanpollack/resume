@@ -8,7 +8,7 @@ import { ReactNode } from "react";
 
 function H1({ title }: { title: string }) {
   return (
-    <h1 className="dark:text-white font-bold py-4 lg:py-6 sm:text-5xl text-4xl text-gray-600 drop-shadow-md">
+    <h1 className="py-4 text-4xl font-bold text-gray-600 drop-shadow-md sm:text-5xl lg:py-6 dark:text-white">
       {title}
     </h1>
   );
@@ -16,7 +16,7 @@ function H1({ title }: { title: string }) {
 
 function H2({ title }: { title: string }) {
   return (
-    <h2 className="mb-4 font-bold tracking-wide text-xl dark:text-white text-gray-600 ">
+    <h2 className="mb-4 text-xl font-bold tracking-wide text-gray-600 dark:text-white ">
       {title}
     </h2>
   );
@@ -24,13 +24,13 @@ function H2({ title }: { title: string }) {
 
 function H3({ title }: { title: string }) {
   return (
-    <h3 className="text-xl dark:text-slate-300 text-gray-600 py-1">{title}</h3>
+    <h3 className="py-1 text-xl text-gray-600 dark:text-slate-300">{title}</h3>
   );
 }
 
 function H4({ title }: { title: string }) {
   return (
-    <h4 className="lg:text-nowrap dark:text-slate-300 text-gray-600 text-lg py-1">
+    <h4 className="py-1 text-lg text-gray-600 lg:text-nowrap dark:text-slate-300">
       {title}
     </h4>
   );
@@ -38,13 +38,13 @@ function H4({ title }: { title: string }) {
 
 function H5({ title }: { title: string }) {
   return (
-    <h5 className="dark:text-slate-400 text-gray-600 text-sm py-1">{title}</h5>
+    <h5 className="py-1 text-sm text-gray-600 dark:text-slate-400">{title}</h5>
   );
 }
 
 function Box(props: { children?: ReactNode }) {
   return (
-    <div className="justify-center items-center dark:bg-slate-800 bg-gray-100 shadow-xl rounded-lg px-5 m-2 py-4">
+    <div className="m-2 items-center justify-center rounded-lg bg-gray-100 px-5 py-4 shadow-xl dark:bg-slate-800">
       {props.children}
     </div>
   );
@@ -52,7 +52,7 @@ function Box(props: { children?: ReactNode }) {
 
 function ContactSection() {
   return (
-    <div className="flex flex-wrap flex-row justify-around">
+    <div className="flex flex-row flex-wrap justify-around">
       <ContactItem
         title={"nolanfpollack@gmail.com"}
         link={"mailto:nolanfpollack@gmail.com"}
@@ -88,7 +88,7 @@ function ContactItem({
 }) {
   return (
     <a href={link} target="_blank" rel="noreferrer">
-      <div className="flex space-x-2 dark:hover:bg-slate-600 hover:bg-gray-200 px-1.5 mx-1 text-nowrap rounded-lg py-0.5 active:bg-gray-300">
+      <div className="mx-1 flex space-x-2 text-nowrap rounded-lg px-1.5 py-0.5 hover:bg-gray-200 active:bg-gray-300 dark:hover:bg-slate-600">
         <Image
           className="object-contain"
           src={image}
@@ -96,7 +96,7 @@ function ContactItem({
           height={15}
           alt={"Phone Logo"}
         />
-        <p className="dark:text-slate-400 text-gray-600 flex-1">{title}</p>
+        <p className="flex-1 text-gray-600 dark:text-slate-400">{title}</p>
       </div>
     </a>
   );
@@ -113,7 +113,7 @@ function EducationItem({
 }) {
   return (
     <div className="py-3">
-      <div className="flex flex-row justify-between items-start">
+      <div className="flex flex-row items-start justify-between">
         <H3 title={school} />
         <H5 title={date} />
       </div>
@@ -135,7 +135,7 @@ function WorkExperience({
 }) {
   return (
     <div className="py-3">
-      <div className="flex flex-row justify-between items-start">
+      <div className="flex flex-row items-start justify-between">
         <H3 title={title} />
         <H5 title={date} />
       </div>
@@ -147,7 +147,7 @@ function WorkExperience({
 
 function ExperienceBullets({ children }: { children: ReactNode }) {
   return (
-    <ul className="list-disc dark:text-slate-400 text-gray-500 list-outside mx-10 space-y-1.5 my-1">
+    <ul className="mx-10 my-1 list-outside list-disc space-y-1.5 text-gray-500 dark:text-slate-400">
       {children}
     </ul>
   );
@@ -247,7 +247,7 @@ function ExperienceSection() {
 
 function Skill({ title }: { title: string }) {
   return (
-    <p className="transition inline-flex dark:text-slate-300 text-gray-900 bg-gray-200 dark:bg-slate-900 text-sm rounded px-1 m-0.5 hover:scale-105 dark:hover:bg-slate-950 hover:bg-gray-300">
+    <p className="m-0.5 inline-flex rounded bg-gray-200 px-1 text-sm text-gray-900 transition hover:scale-105 hover:bg-gray-300 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-950">
       {title}
     </p>
   );
@@ -259,7 +259,7 @@ function SkillCategory(props: { title: string; skills: string[] }) {
   ));
 
   return (
-    <div className="pt-1 pb-3">
+    <div className="pb-3 pt-1">
       <H4 title={props.title} />
       <div>{skillItems}</div>
     </div>
@@ -330,8 +330,8 @@ function Project({
   link?: string;
 }) {
   return (
-    <button className="transition hover:bg-transparent duration-700 w-full rounded-2xl bg-gradient-to-br from-gray-900 to-purple-800 p-1 my-2 drop-shadow-md hover:scale-105">
-      <h1 className="bg-gray-100 object-fill rounded-xl px-4 py-2 font-semibold text-gray-500 text-sm">
+    <button className="my-2 w-full rounded-2xl bg-gradient-to-br from-gray-900 to-purple-800 p-1 drop-shadow-md transition duration-700 hover:scale-105 hover:bg-transparent">
+      <h1 className="rounded-xl bg-gray-100 object-fill px-4 py-2 text-sm font-semibold text-gray-500">
         {title}
       </h1>
     </button>
@@ -349,7 +349,7 @@ function LightSwitch() {
 
 export default function Home() {
   return (
-    <main className="dark:bg-slate-900 dark:bg-none bg-gradient-to-b from-white to-purple-100 min-h-screen flex-col items-center p-4 lg:py-12 lg:px-40">
+    <main className="min-h-screen flex-col items-center bg-gradient-to-b from-white to-purple-100 p-4 lg:px-40 lg:py-12 dark:bg-slate-900 dark:bg-none">
       <div className="flex flex-col items-center py-6 pt-0">
         <H1 title={"Nolan Pollack"} />
         <ContactSection />
