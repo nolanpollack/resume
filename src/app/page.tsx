@@ -4,10 +4,11 @@ import EducationSection from "@/app/components/EducationSection";
 import ExperienceSection from "@/app/components/ExperienceSection";
 import SkillsSection from "@/app/components/SkillsSection";
 import ProjectsSection from "@/app/components/ProjectsSection";
+import Layout from "@/components/Layout";
 
 export default function Home() {
   return (
-    <main className="min-h-full flex-col items-center bg-gradient-to-b from-white to-purple-100 p-4 lg:px-40 lg:py-12 dark:bg-slate-900 dark:bg-none">
+    <Layout>
       <div className="flex flex-col items-center py-6 pt-0">
         <H1>{"Nolan Pollack"}</H1>
         <ContactSection />
@@ -24,6 +25,6 @@ export default function Home() {
           <ProjectsSection />
         </div>
       </div>
-    </main>
+    </Layout>
   );
 }

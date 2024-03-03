@@ -21,7 +21,9 @@ function WorkExperience({
           <H5>{date}</H5>
         </div>
       </div>
-      <H4>{company}</H4>
+      <div className="font-semibold">
+        <H4>{company}</H4>
+      </div>
       <div className="text-nowrap lg:hidden">
         <H5>{date}</H5>
       </div>

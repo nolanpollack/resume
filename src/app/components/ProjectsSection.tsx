@@ -73,7 +73,13 @@ function ProjectsSection() {
           "Ensured thread safety with POSIX mutexes and condition variables",
           "Ranked second fastest key-value store out of class of 100+ students",
         ]}
-        skills={["C", "POSIX Threads", "Mutexes", "Condition Variables"]}
+        skills={[
+          "C",
+          "Multithreading",
+          "POSIX Threads",
+          "Mutexes",
+          "Condition Variables",
+        ]}
       />
       <Project
         title={"Distributed KV Database"}
@@ -94,6 +100,23 @@ function ProjectsSection() {
           "Implements several features of TCP such as fast retransmit",
         ]}
         skills={["Python", "UDP", "TCP"]}
+      />
+      <Project
+        title={"Labyrinth Game"}
+        date={"September 2022 - December 2022"}
+        description={[
+          "Designed an interactive maze-based game utilizing Java with a Maven build configuration",
+          "Implemented a server component using the proxy-client pattern, communicating with JSON messages over TCP",
+          "Developed clients that implement the communication-layer aspects of the server-client communication",
+          "Wrote over 50 classes and thousands of lines of code ensuring test-driven development to manufacture a cohesive, complete application, with unit and integration tests for the entire platform",
+        ]}
+        skills={[
+          "Java",
+          "Multithreading",
+          "Object-Oriented Design",
+          "JSON",
+          "JUnit",
+        ]}
       />
     </Box>
   );
