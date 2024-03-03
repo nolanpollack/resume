@@ -5,6 +5,8 @@ import { Dialog, Transition } from "@headlessui/react";
 import { ReactNode, Fragment } from "react";
 import Box from "./Box";
 import { H2, H5 } from "@/components/Headings";
+import Image from "next/image";
+import cross from "@/assets/cross.svg";
 
 export default function Modal({
   title,
@@ -37,7 +39,7 @@ export default function Modal({
           />
         </Transition.Child>
 
-        <div className="fixed inset-0 flex w-screen items-center justify-center p-2 sm:px-32 sm:py-24 lg:px-64">
+        <div className="fixed inset-0 flex w-screen items-center justify-center overflow-auto p-2 sm:px-32 sm:py-24 lg:px-64">
           <Transition.Child
             as={Fragment}
             enter="transition ease-out duration-300"
@@ -51,7 +53,21 @@ export default function Modal({
               <Box>
                 <div className="divide-y p-4">
                   <Dialog.Title className="flex flex-col justify-between sm:flex-row">
-                    <H2>{title}</H2>
+                    <div className="flex items-baseline justify-between">
+                      <H2>{title}</H2>
+                      <button
+                        className="sm:hidden"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        <Image
+                          src={cross}
+                          alt={"Close Modal"}
+                          width={15}
+                          height={15}
+                        />
+                      </button>
+                    </div>
+
                     {date && <H5>{date}</H5>}
                   </Dialog.Title>
                   <Dialog.Description className="pt-4">
