@@ -18,7 +18,7 @@ function H2({ children }: { children: ReactNode }) {
 
 function H3({ children }: { children: ReactNode }) {
   return (
-    <h3 className="py-1 text-xl text-gray-600 dark:text-slate-300">
+    <h3 className="py-1 text-xl text-gray-600 dark:text-slate-200">
       {children}
     </h3>
   );

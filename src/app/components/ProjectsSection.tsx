@@ -20,7 +20,7 @@ function LinkWithIcon({
 }) {
   return (
     <a
-      className="flex flex-row space-x-2 rounded-lg px-1 pt-0 hover:bg-gray-200"
+      className="flex flex-row space-x-2 rounded-lg px-1 pt-0 hover:bg-gray-200 dark:hover:bg-slate-600"
       href={link}
       target="_blank"
     >
@@ -79,7 +79,9 @@ function Project({
           <ul className="text-pretty text-gray-600">{bullets}</ul>
           {skills && (
             <div className="mt-2 pt-3">
-              <p className="mr-1 inline-flex text-gray-600">Skills: </p>
+              <p className="mr-1 inline-flex text-gray-600 dark:text-slate-300">
+                Skills:{" "}
+              </p>
               {skillItems}
             </div>
           )}
