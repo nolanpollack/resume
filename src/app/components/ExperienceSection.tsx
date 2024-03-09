@@ -48,7 +48,7 @@ export default function ExperienceSection() {
         <WorkExperience
           title={"Software Engineer Co-op"}
           company={"Toast"}
-          date={"May 2023 - August 2023"}
+          date={"July 2023 - December 2023"}
         >
           <ExperienceBullets>
             <li>
