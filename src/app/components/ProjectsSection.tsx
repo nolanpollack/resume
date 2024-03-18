@@ -124,13 +124,30 @@ function ProjectsSection() {
         ]}
       />
       <Project
+        title={"NBA Connections"}
+        date={"March 2024"}
+        description={[
+          "Developed an application in Python that finds connections between NBA players based on teammates",
+          "Utilized a graph data structure to represent the NBA players and their connections",
+          "Implemented a breadth-first search algorithm to find the shortest path between two players",
+          "Utilized the NBA API to gather player data",
+          "Front-end in progress",
+        ]}
+        skills={[
+          "Python",
+          "Graph Data Structures",
+          "Breadth-First Search",
+          "API",
+        ]}
+      />
+      <Project
         title={"Multi-Threaded KV Store"}
         date={"February 2024"}
         description={[
           "Extremely fast multi-threaded key-value store written in C",
           "Designed and implemented thread-safe hash table using djb2 hashing algorithm",
           "Ensured thread safety with POSIX mutexes and condition variables",
-          "Ranked second fastest key-value store out of class of 100+ students",
+          "Ranked fastest key-value store out of class of 100+ students",
         ]}
         skills={[
           "C",
