@@ -96,7 +96,7 @@ function Project({
   );
 }
 
-function ProjectsSection() {
+export default function ProjectsSection() {
   return (
     <Box>
       <H2>{"Projects"}</H2>
@@ -254,5 +254,3 @@ function ProjectsSection() {
     </Box>
   );
 }
-
-export default ProjectsSection;
