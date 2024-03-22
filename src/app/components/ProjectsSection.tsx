@@ -175,6 +175,22 @@ function ProjectsSection() {
         ]}
       />
       <Project
+        title={"Twitter Sentiment Stock Trading"}
+        date={"March 2023 - April 2023"}
+        description={[
+          "Developed a stock trading model that uses Twitter sentiment analysis to identify profitable trades",
+          "Utilized the Twitter API to gather tweets and TextBlob to determine the sentiment of the tweets",
+          "Analyzed different machine learning models to predict stock prices, including random forests, SVM, AdaBoost, and neural networks",
+        ]}
+        skills={[
+          "Python",
+          "TextBlob",
+          "yfinance",
+          "Pandas",
+          "Machine Learning",
+        ]}
+      />
+      <Project
         title={"Reliable Transport Protocol"}
         date={"March 2023"}
         description={[
